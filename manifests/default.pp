@@ -49,6 +49,17 @@ if $utils == 'true' {
 }
 
 #------------------------------------------
+# dotfiles
+#------------------------------------------
+if $dotfiles == 'true' {
+    exec { "dotfiles":
+        command => "bash < <( curl https://raw.github.com/ammonkc/dotfiles/linux/bootstrap.sh )",
+        path    => "/bin/",
+        # path    => [ "/usr/local/bin/", "/bin/" ],  # alternative syntax
+    }
+}
+
+#------------------------------------------
 # LAMP stack - Apache/MySQL/PHP
 #------------------------------------------
 if $puppet_node =~ /^lamp.([0-9a-zA-Z]*-?[0-9a-zA-Z]*)([0-9a-zA-Z]*_?[0-9a-zA-Z]*)\.vagrant.dev$/ {
