@@ -81,7 +81,7 @@ if $puppet_node =~ /^lemp.([0-9a-zA-Z]*-?[0-9a-zA-Z]*)([0-9a-zA-Z]*_?[0-9a-zA-Z]
 # Node.js
 #------------------------------------------
 if $nodejs == 'true' {
-    class { 'nodejs': stage => main; }
+   include nodejs
 
     pkg::npm { 'less': }
 }
