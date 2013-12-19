@@ -43,7 +43,6 @@ class { 'repo::epel': stage => pre; }
 # Utils
 #------------------------------------------
 if $utils == 'true' {
-    info("Installing Utilities")
     include pkg::utils
 }
 
@@ -52,7 +51,6 @@ if $utils == 'true' {
 #------------------------------------------
 if $dotfiles == 'true' {
     if $utils != 'true' {
-        info("Installing dotfiles dependencies")
         pkg::install { [ 'git', 'tree', 'vim-enhanced', 'zsh', 'bc' ]:
             stage => pre
         }
