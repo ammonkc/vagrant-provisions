@@ -57,12 +57,12 @@ if $dotfiles == 'true' {
     }
     user { "vagrant":
       ensure => present,
-      shell  => "/bin/zsh",
+      shell  => '/bin/zsh',
     }
-    exec { "dotfiles":
-        command => "bash < <( curl https://raw.github.com/ammonkc/dotfiles/linux/bootstrap.sh )",
-        user    => "vagrant",
-        path    => "/bin/",
+    exec { "Install dotfiles":
+        command => '/usr/bin/curl https://raw.github.com/ammonkc/dotfiles/linux/bootstrap.sh | sh',
+        user    => 'vagrant',
+        path    => '/bin/',
     }
 }
 
