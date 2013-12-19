@@ -62,7 +62,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #-------------------------------------------------
   # set domain ending (required)
   # adding this line enables dnsmasq handling
-  config.dnsmasq.domain = '.dev'
+  # config.dnsmasq.domain = '.dev'
 
   # optional configuration ...
 
@@ -86,11 +86,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # config.dnsmasq.keep_resolver_on_destroy = true
 
   # overwrite default location for /etc/dnsmasq.conf
-  brew_prefix = `brew --prefix`.strip
-  config.dnsmasq.dnsmasqconf = brew_prefix + '/etc/dnsmasq.conf'
+  # brew_prefix = `brew --prefix`.strip
+  # config.dnsmasq.dnsmasqconf = brew_prefix + '/etc/dnsmasq.conf'
 
   # command for reloading dnsmasq after config changes
-  config.dnsmasq.reload_command = 'sudo launchctl unload /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist; sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist'
+  # config.dnsmasq.reload_command = 'sudo launchctl unload /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist; sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist'
 
   # disable dnsmasq handling
   # config.dnsmasq.disable = true
