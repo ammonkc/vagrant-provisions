@@ -52,8 +52,10 @@ if $utils == 'true' {
 #------------------------------------------
 if $dotfiles == 'true' {
     if $utils != 'true' {
-        info("Installing Utilities")
-        include pkg::utils
+        info("Installing dotfiles dependencies")
+        pkg::install { [ 'git', 'tree', 'vim-enhanced', 'zsh', 'bc' ]:
+            stage => pre
+        }
     }
     exec { "dotfiles":
         command => "bash < <( curl https://raw.github.com/ammonkc/dotfiles/linux/bootstrap.sh )",
