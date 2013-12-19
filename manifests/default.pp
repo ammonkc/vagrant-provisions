@@ -44,7 +44,6 @@ class { 'repo::epel': stage => pre; }
 #------------------------------------------
 if $utils == 'true' {
     info("Installing Utilities")
-    # install utilities
     include pkg::utils
 }
 
@@ -52,10 +51,13 @@ if $utils == 'true' {
 # dotfiles
 #------------------------------------------
 if $dotfiles == 'true' {
+    if $utils != 'true' {
+        info("Installing Utilities")
+        include pkg::utils
+    }
     exec { "dotfiles":
         command => "bash < <( curl https://raw.github.com/ammonkc/dotfiles/linux/bootstrap.sh )",
         path    => "/bin/",
-        # path    => [ "/usr/local/bin/", "/bin/" ],  # alternative syntax
     }
 }
 
