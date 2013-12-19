@@ -60,7 +60,7 @@ if $dotfiles == 'true' {
       shell  => "/bin/zsh",
     }
     exec { "dotfiles":
-        command => "bash < <( curl https://raw.github.com/ammonkc/dotfiles/linux/bootstrap.sh ) 2&>/dev/null",
+        command => "bash < <( curl https://raw.github.com/ammonkc/dotfiles/linux/bootstrap.sh )",
         user    => "vagrant",
         path    => "/bin/",
     }
