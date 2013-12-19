@@ -57,8 +57,13 @@ if $dotfiles == 'true' {
             stage => pre
         }
     }
+    user { "vagrant":
+      ensure => present,
+      shell  => "/bin/zsh",
+    }
     exec { "dotfiles":
-        command => "bash < <( curl https://raw.github.com/ammonkc/dotfiles/linux/bootstrap.sh )",
+        command => "bash < <( curl https://raw.github.com/ammonkc/dotfiles/linux/bootstrap.sh ) 2&>/dev/null",
+        user    => "vagrant",
         path    => "/bin/",
     }
 }
