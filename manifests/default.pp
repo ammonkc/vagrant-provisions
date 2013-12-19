@@ -24,7 +24,7 @@ node default {
         *****************************
         **     Vagrant Dev VM      **
         *****************************
-            - Version:  0.0.6
+            - Version:  0.0.7
             - OS:       CentOS-6.5_x86_64
             - Box:      CentOS-6.5
             - Hostname: ${fqdn}
