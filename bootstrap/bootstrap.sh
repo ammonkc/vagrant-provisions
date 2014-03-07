@@ -30,7 +30,7 @@ install_puppet() {
     rm /tmp/puppetlabs-release-6-7.noarch.rpm
     yum update
     notice "Installing puppet"
-    yum install -y puppet facter
+    yum install -y puppet facter git
     notice "Puppet installed!"
 }
 
