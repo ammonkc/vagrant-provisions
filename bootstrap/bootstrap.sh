@@ -24,7 +24,7 @@ fi
 install_puppet() {
     notice "Installing Puppet repo for CentOS-6.5-x86_64"
     wget -qO /tmp/puppetlabs-release-6-7.noarch.rpm \
-    http://yum.puppetlabs.com/el/6/products/x86_64/puppetlabs-release-6-7.noarch.rpm
+    http://yum.puppetlabs.com/el/6/products/x86_64/puppetlabs-release-6-10.noarch.rpm
 
     rpm -ivh /tmp/puppetlabs-release-6-7.noarch.rpm
     rm /tmp/puppetlabs-release-6-7.noarch.rpm
@@ -77,6 +77,11 @@ install_puppet_modules() {
                 fi
             else
                 c_list "${pmod_deps[$index]} ==> ${vpmod_path}"
+                if [ "${pmod_deps[$index]%%-*}" == "ammonkc" ]; then
+                    $git_bin clone ${mod_repos[$index]} "${pmod_path}/${pmod_deps[$index]##*-}"
+                else
+                    $puppet_bin module upgrade ${pmod_deps[$index]} --modulepath ${pmod_path}
+                fi
             fi
         done
     else
