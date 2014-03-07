@@ -30,8 +30,21 @@ install_puppet() {
     rm /tmp/puppetlabs-release-6-7.noarch.rpm
     yum update
     notice "Installing puppet"
-    yum install -y puppet facter git
+    yum install -y puppet facter
     notice "Puppet installed!"
+
+    if hash git 2> /dev/null ; then
+        notice "git is installed"
+    else
+        install_git
+    fi
+}
+
+install_git() {
+    notice "Installing git"
+    yum install -y git
+    notice "git installed!"
+    return 1
 }
 
 install_puppet_modules() {
