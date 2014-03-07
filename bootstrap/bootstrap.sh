@@ -28,7 +28,7 @@ install_puppet() {
 
     rpm -ivh /tmp/puppetlabs-release-6-7.noarch.rpm
     rm /tmp/puppetlabs-release-6-7.noarch.rpm
-    yum update -y
+    yum update
     notice "Installing puppet"
     yum install -y puppet facter
     notice "Puppet installed!"
