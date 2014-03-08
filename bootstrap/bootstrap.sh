@@ -77,11 +77,6 @@ install_puppet_modules() {
                 fi
             else
                 c_list "${pmod_deps[$index]} ==> ${vpmod_path}"
-                if [ "${pmod_deps[$index]%%-*}" == "ammonkc" ]; then
-                    $git_bin clone ${mod_repos[$index]} "${pmod_path}/${pmod_deps[$index]##*-}"
-                else
-                    $puppet_bin module upgrade ${pmod_deps[$index]} --modulepath ${pmod_path}
-                fi
             fi
         done
     else
