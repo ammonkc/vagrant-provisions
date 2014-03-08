@@ -23,11 +23,11 @@ fi
 
 install_puppet() {
     notice "Installing Puppet repo for CentOS-6.5-x86_64"
-    wget -qO /tmp/puppetlabs-release-6-7.noarch.rpm \
+    wget -qO /tmp/puppetlabs-release-6-10.noarch.rpm \
     http://yum.puppetlabs.com/el/6/products/x86_64/puppetlabs-release-6-10.noarch.rpm
 
-    rpm -ivh /tmp/puppetlabs-release-6-7.noarch.rpm
-    rm /tmp/puppetlabs-release-6-7.noarch.rpm
+    rpm -ivh /tmp/puppetlabs-release-6-10.noarch.rpm
+    rm /tmp/puppetlabs-release-6-10.noarch.rpm
     yum update -y
     notice "Installing puppet"
     yum install -y puppet facter
