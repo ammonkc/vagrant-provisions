@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 
 # Vagrant Project variables
-PROJECT_NAME = dirname = File.basename(Dir.getwd)
+# PROJECT_NAME = dirname = File.basename(Dir.getwd)
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # All Vagrant configuration is done here. The most common configuration
@@ -55,7 +55,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #-------------------------------------------------
   # The hostname the machine should have. Defaults to nil. If nil,
   # Vagrant won't manage the hostname. If set to a string, the hostname will be set on boot.
-  config.vm.hostname = "#{PROJECT_NAME}.vagrant.dev"
+  # config.vm.hostname = "#{PROJECT_NAME}.vagrant.dev"
 
   #-------------------------------------------------
   # DNSmasq
